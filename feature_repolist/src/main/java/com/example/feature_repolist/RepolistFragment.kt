@@ -88,6 +88,10 @@ class RepolistFragment : BaseFragment(R.layout.fragment_feature_repolist),
 
                         it is RepoListUiState.RepoListEmpty -> {
                             if (it.error.isNotEmpty()) {
+                                binding.rvRepoList.apply {
+                                    hideWait()
+                                    showEmpty("No Data Found")
+                                }
                                 Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
                             } else {
                                 binding.rvRepoList.apply {
